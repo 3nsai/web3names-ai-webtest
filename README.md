@@ -18,7 +18,7 @@ The project is organized into two main folders:
 
 ### Step 1: Extract Information from Documentation
 
-1. **Choose a Feature**: Start with one feature or section of the documentation (e.g., Login Page).
+1. **Choose a Feature**: Start with one feature or section of the documentation (e.g., Your Agent Page).
 2. **Include Screenshots**: Use the provided screenshots and write a brief description of each (e.g., "This screenshot shows the login fields: Email and Password.").
 
 ### Step 2: Use GPT to Generate Test Cases
