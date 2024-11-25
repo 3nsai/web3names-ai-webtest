@@ -1,128 +1,91 @@
-Certainly! Below is the content formatted in Markdown:
-
-```markdown
 # README.md for Test Cases and Playwright Scripts
 
 ## Introduction
 
-Welcome to the **Web3Names AI Web Test** repository! This document provides step-by-step instructions for our interns on how to create test cases and automate them using Playwright. Follow these guidelines carefully to ensure comprehensive testing of our application.
+Welcome to the **Web3Names AI Web Test** repository! This document provides step-by-step instructions for our interns on how to manually test the application based on predefined test cases and automate them using Playwright. Follow these guidelines to ensure comprehensive and effective testing of our platform. 
 
 ## Project Structure
 
-The project is organized into two main folders:
+The project is organized into two main sections:
 
-- **Testcases**: This folder is where you will store all generated test cases.
-- **Playwright Scripts**: This folder is designated for the automation scripts written in Playwright.
+- **Test Cases**: This section contains all the manually created test cases, organized by features, panels, or pages.
+- **Playwright Scripts**: This section contains the Playwright automation scripts that will run the test cases.
 
-## Part 1: Creating Test Cases from Documentation
+### Additional Information for Interns:
 
-### Step 1: Extract Information from Documentation
+- Each test case has a **Test Case ID**, **Title**, and **Preconditions**. The **Steps to Reproduce** provide instructions to manually test the application, and the **Expected Outcome** explains the expected results for each test.
+- After completing each test case, a document will be created at the end of the test process to note if the test case passed or failed. If the test case failed, provide a description of the issue or the behavior observed during testing.
 
-1. **Choose a Feature**: Start with one feature or section of the documentation (e.g., Your Agent Page).
-2. **Include Screenshots**: Use the provided screenshots and write a brief description of each (e.g., "This screenshot shows the login fields: Email and Password.").
+---
 
-### Step 2: Use GPT to Generate Test Cases
+## Part 1: Manual Testing Based on Test Cases
 
-1. **Gather Inputs**: For each section, describe the inputs, user actions, and expected results.
-2. **Craft Your Prompt**: Use a prompt similar to the following:
-```
+### Step 1: Understand the Test Case Document
 
-I have a screenshot of a login page with two fields: "Email" and "Password," and a "Login" button.
-The expected behavior is:
+1. **Read the Test Cases**: Before starting any test, read through the **Test Case ID**, **Title**, **Preconditions**, **Steps to Reproduce**, **Expected Outcome**, and **Priority** carefully.
+2. **Understand the Process**: Review any screenshots or instructions included to fully understand the process that needs to be tested.
 
-- Users enter their email and password.
-- When they click "Login," they are redirected to the dashboard if the credentials are valid.
-- If credentials are invalid, an error message appears: "Invalid email or password."
-  Generate test cases covering:
-- Happy path
-- Error cases
-- Edge cases
-- Usability cases
+### Step 2: Manually Test the Application
 
-```
+1. **Navigate the Platform**: Based on the test case, perform the required steps in the application.
+2. **Check for Expected Outcome**: Compare the application’s behavior with the **Expected Outcome** described in the test case.
+3. **Document Issues**: If the test case fails, document:
+   - The error message or behavior observed.
+   - If any steps did not work as expected, explain the observed result.
+   - Include any relevant screenshots or logs that can help with debugging.
 
-3. **Review Generated Test Cases**: Ensure they include:
-- Test Case ID
-- Title
-- Preconditions
-- Steps to Reproduce
-- Expected Outcome
-- Priority
+### Step 3: Report the Results
 
-### Step 3: Iterate Section by Section
+- After executing each test case, update the test case status:
+  - **Pass**: If the behavior matches the expected outcome.
+  - **Fail**: If the behavior differs from the expected outcome.
+- **For Failed Test Cases**: Provide a clear description of what went wrong and why. Attach any relevant error messages or screenshots to help understand the failure.
 
-1. **Repeat Process**: Continue extracting information and generating test cases for each section of the documentation.
-2. **Organize Test Cases**: Store them in the **Testcases** folder, organized by features/pages.
+### Step 4: Add Your Own Test Cases (Optional)
 
-### Step 4: Ensure Comprehensive Coverage
+1. **Identify Gaps**: If you notice functionality that isn’t covered in the current test cases, add your own test cases.
+2. **Follow the Format**: Ensure your new test cases follow the same format used in the existing test case documents.
+3. **Highlight Issues**: If you identify any underlying functionality or bugs, note them in your test case documentation.
 
-1. **Expand Scenarios**: Use GPT to generate additional test cases for edge scenarios (e.g., refreshing the page, clicking "Login" without inputs).
-2. **Sample Prompt for Edge Cases**:
 
-```
+---
 
-Add test cases for edge scenarios:
+## Steps for Test Evaluation
 
-- User refreshes the page after entering valid inputs.
+### 1. Execute the Test Cases
+- Review the **Test Case ID**, **Title**, **Preconditions**, **Steps to Reproduce**, and **Expected Outcome**.
+- Perform the steps in the application and observe the behavior.
+- Note the result:
+  - **Pass**: If the application behaves as expected.
+  - **Fail**: If the application behavior deviates from the expected outcome.
 
-````
+### 2. Document Results
+- For **failed test cases**, include:
+  - A clear description of the issue.
+  - Screenshots or logs of the error or unexpected behavior.
 
-### Step 5: Finalize and Store Test Cases
+### 3. Create a Word Document
+- Name your document: `WEB3NamesTestEvaluationBy[YourName].docx` (e.g., `WEB3NamesTestEvaluationByJohnDoe.docx`).
+- Structure:
+  - **Introduction**: Provide an overview of the tests you performed.
+  - **Test Results Table**: Create a table with the following columns:
+    1. **Feature**: The specific feature being tested.
+    2. **Test ID**: The unique identifier for the test case.
+    3. **Test Title**: A brief title for the test case.
+    4. **Status**: Mark as **Pass** or **Fail**.
+    5. **Logs/Results (with Screenshots)**: Add error descriptions, observed results, and include screenshots or logs if necessary.
+    
+#### Example Table
+| Feature        | Test ID       | Test Title                   | Status | Logs/Results (with Screenshots)          |
+|----------------|---------------|------------------------------|--------|------------------------------------------|
+| Login Feature  | TC001         | Verify Login Functionality   | Pass   | N/A                                      |
+| Registration   | TC002         | Verify Email Validation      | Fail   | Error: Invalid email format not detected. See Screenshot_001.png |
 
-- Save all generated test cases in a Google Document or directly in the **Testcases** folder.
+- Save the document with all your findings.
 
-## Part 2: Automating Test Cases Using Playwright
 
-### Step 1: Set Up the Automation Environment
+### 4. Submit Your Evaluation
+1. Save your document in the `TESTEVALUATION` folder in the repository.
+2. Add a link to your document in the `TestEvaluation.md` file within the same folder:
+- [WEB3NamesTestEvaluationByJohnDoe](./WEB3NamesTestEvaluationByJohnDoe.docx)
 
-1. **Install Playwright**:
-```bash
-npm install @playwright/test
-````
-
-2. **Initialize Playwright**:
-   ```bash
-   npx playwright install
-   ```
-
-### Step 2: Translate Test Cases into Playwright Scripts
-
-1. **Use GPT for Script Generation**: Provide details of your test case to GPT using a prompt like this:
-
-   ```
-   Based on the following test case, generate a Playwright test script:
-   Test Case:
-   - Title: Verify successful login with valid credentials
-   ```
-
-2. **Review Generated Scripts**: Ensure they follow proper syntax and structure.
-
-### Step 3: Run Automated Tests
-
-- Execute all Playwright tests with the following command:
-  ```bash
-  npx playwright test
-  ```
-
-### Step 4: Debug and Refine Tests
-
-1. Use Playwright Trace Viewer or console logs to debug any failing tests.
-2. Update your scripts based on findings from manual testing or new edge cases.
-
-## Additional Notes for Interns
-
-- When generating test cases, include common user interactions (e.g., refreshing pages, invalid data).
-- Always use `await` before Playwright actions (e.g., `await page.click()`).
-- Prefer using stable selectors like `data-testid` attributes for better reliability.
-
-## Learning Resources
-
-- [Playwright Documentation](https://playwright.dev/docs/intro)
-- [ChatGPT for Automated Testing](https://www.qodo.ai/blog/chatgpt-for-automated-testing-examples-and-best-practices/)
-
-By following these instructions, you will contribute significantly to our testing efforts. Happy testing!
-
-```
-
-You can copy this text into your Markdown editor or GitHub repository as needed!
-```
