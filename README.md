@@ -86,6 +86,61 @@ The project is organized into two main sections:
 
 ### 4. Submit Your Evaluation
 1. Save your document in the `TESTEVALUATION` folder in the repository.
-2. Add a link to your document in the `TestEvaluation.md` file within the same folder:
-- [WEB3NamesTestEvaluationByJohnDoe](./WEB3NamesTestEvaluationByJohnDoe.docx)
+2. Save your findings as Feature_manualtest.pdf (e.g., YourAgent_manualtest.pdf).
+3. Submit your findings in the document in the TESTEVALUATION folder in the repository in pdf
 
+
+
+# Playwright Usage Documentation
+
+## Introduction
+
+This guide explains how to use Playwright for automated testing of the **Web3Names AI Web Test** application. Playwright is a Node.js-based framework for browser automation and testing.
+
+---
+
+## Prerequisites
+
+Before using Playwright, ensure you have the following installed:
+1. **Node.js**: Download from [Node.js Official Website](https://nodejs.org/).
+2. **npm**: Verify installation with:
+   
+   node -v
+   npm -v
+
+
+### Step 1: Set Up the Environment
+
+Clone the repository and install dependencies:
+
+git clone <repository-url>
+cd <repository-folder>
+cd Playwright
+npm install
+
+### Step 2: Run Automated Tests
+Execute all Playwright tests using:
+npx playwright test
+npx playwright test tests/TC_01.test.js (to run specific test case)
+
+### Step 3: Debugging Tests
+Use the debug mode to step through tests interactively:
+
+npx playwright test --debug
+
+### Step 4: Write New Playwright Scripts
+
+Where to Start
+All Playwright test scripts should be stored in the tests/ directory .
+For reference, review the structure and implementation of the existing test case: YourAgent_TC_01.test.js.
+
+### Guidelines for Writing New Scripts
+Understand the Test Requirements from the folder TestCases:
+Identify the feature you want to test.
+Review the manual test cases for detailed steps, preconditions, and expected outcomes.
+Follow the Existing Structure:
+Open YourAgent_TC_01.test.js in the tests/ folder.
+Note how the test script is structured and follow the same pattern for your new test cases.
+Use Playwright Testing Library:
+Import the required modules from Playwright.
+Define a test block using test() and include a clear description of what the test does.
